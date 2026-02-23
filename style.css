@@ -329,7 +329,7 @@ body {
 
 /* No Button */
 .btn-no {
-  background: linear-gradient(135deg, #b0b0b0, #8e8e8e);
+  background: linear-gradient(135deg, #666, #444);
   color: #fff;
   box-shadow: 0 4px 16px rgba(100, 100, 100, 0.3);
   position: relative;

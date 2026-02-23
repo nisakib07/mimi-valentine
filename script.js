@@ -157,7 +157,8 @@ function rectsOverlap(r1, r2) {
 function moveNoButton() {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
-  const padding = 24;
+  const padding = 30;
+  const bottomPadding = 60;  // extra space for mobile nav bars
 
   if (!isEscaped) {
     isEscaped = true;
@@ -179,7 +180,7 @@ function moveNoButton() {
     };
 
     const maxX = vw - btnW - padding;
-    const maxY = vh - btnH - padding;
+    const maxY = vh - btnH - bottomPadding;
 
     let randomX, randomY, noRect, attempts = 0;
 
