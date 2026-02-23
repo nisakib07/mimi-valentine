@@ -151,30 +151,34 @@ function createSparkle(e) {
 
 // ===== No Button – Escape Logic =====
 function moveNoButton() {
-  const btnW = btnNo.offsetWidth;
-  const btnH = btnNo.offsetHeight;
   const vw = window.innerWidth;
   const vh = window.innerHeight;
-  const padding = 20;
-
-  const maxX = vw - btnW - padding;
-  const maxY = vh - btnH - padding;
-
-  const randomX = padding + Math.random() * (maxX - padding);
-  const randomY = padding + Math.random() * (maxY - padding);
+  const padding = 24;
 
   if (!isEscaped) {
     isEscaped = true;
     btnNo.classList.add('escaped');
   }
 
-  btnNo.style.left = randomX + 'px';
-  btnNo.style.top = randomY + 'px';
+  // Measure after class change
+  requestAnimationFrame(() => {
+    const btnW = btnNo.offsetWidth;
+    const btnH = btnNo.offsetHeight;
 
-  // Wiggle animation
-  btnNo.classList.remove('wiggle');
-  void btnNo.offsetWidth;
-  btnNo.classList.add('wiggle');
+    const maxX = vw - btnW - padding;
+    const maxY = vh - btnH - padding;
+
+    const randomX = padding + Math.random() * Math.max(maxX - padding, 0);
+    const randomY = padding + Math.random() * Math.max(maxY - padding, 0);
+
+    btnNo.style.left = randomX + 'px';
+    btnNo.style.top = randomY + 'px';
+
+    // Wiggle animation
+    btnNo.classList.remove('wiggle');
+    void btnNo.offsetWidth;
+    btnNo.classList.add('wiggle');
+  });
 }
 
 // ===== Grow Yes Button & Shrink No Button =====
@@ -184,24 +188,25 @@ function updateButtons() {
   // Change No button text
   noText.textContent = noMessages[idx];
 
-  // Change Yes button text & grow it
+  // Change Yes button text & grow it naturally (padding + font-size, not scale)
   yesText.textContent = yesMessages[Math.min(noTapCount, yesMessages.length - 1)];
 
-  // Yes grows bigger!
-  yesScale = 1 + noTapCount * 0.1;
-  btnYes.style.transform = `scale(${Math.min(yesScale, 1.8)})`;
+  const yesGrowth = Math.min(noTapCount, 10);
+  const yesFontSize = 1.2 + yesGrowth * 0.06;  // 1.2rem → 1.8rem
+  const yesPadding = 16 + yesGrowth * 2;         // 16px → 36px
+  btnYes.style.fontSize = yesFontSize + 'rem';
+  btnYes.style.padding = yesPadding + 'px 36px';
+  btnYes.style.maxWidth = 'none';
   btnYes.style.zIndex = '20';
 
   if (noTapCount >= 2) {
     btnYes.classList.add('growing');
   }
 
-  // No button shrinks
-  const noScale = Math.max(1 - noTapCount * 0.06, 0.6);
-  if (!isEscaped) {
-    btnNo.style.transform = `scale(${noScale})`;
-  }
-  btnNo.style.opacity = Math.max(1 - noTapCount * 0.05, 0.5).toString();
+  // No button gets smaller & more transparent
+  const noFontSize = Math.max(0.95 - noTapCount * 0.03, 0.7);
+  btnNo.style.fontSize = noFontSize + 'rem';
+  btnNo.style.opacity = Math.max(1 - noTapCount * 0.04, 0.45).toString();
 
   // Change top emoji
   emojiTop.textContent = topEmojis[Math.min(noTapCount, topEmojis.length - 1)];
