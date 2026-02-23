@@ -61,20 +61,20 @@ const yesMessages = [
 
 // ===== Top Emoji Emotional Journey =====
 const topEmojis = [
-  'ðŸ’•',  // happy
-  'ðŸ¥º',  // puppy eyes
-  'ðŸ˜¢',  // sad
-  'ðŸ’”',  // heartbreak (warning fires)
-  'ðŸ˜­',  // crying
-  'ðŸ•',  // pizza trauma
-  'ðŸ“ž',  // calling mom
-  'ðŸ’…',  // petty mode
-  'ðŸ”',  // googling
-  'ðŸ“±',  // texting
-  'ðŸ˜¤',  // angry
-  'ðŸ™',  // praying
-  'ðŸ¤¡',  // clown mode
-  'ðŸ’€',  // dead
+  '💕',  // happy
+  '🥺',  // puppy eyes
+  '😢',  // sad
+  '💔',  // heartbreak (warning fires)
+  '😭',  // crying
+  '🍕',  // pizza trauma
+  '📞',  // calling mom
+  '💅',  // petty mode
+  '�',  // googling
+  '�',  // texting
+  '😤',  // angry
+  '�',  // praying
+  '🤡',  // clown mode
+  '�',  // dead
 ];
 
 // ===== Typewriter Effect =====
