@@ -204,9 +204,10 @@ function handleNoTap(e) {
     void btnNo.offsetWidth;
     btnNo.classList.add('wiggle');
   } else if (noTapCount === 3) {
-    // 3rd tap: warning popup + start escaping
+    // 3rd tap: warning popup first, escape after dismiss
     showWarning();
-    setTimeout(() => moveNoButton(), 300);
+    // Move the button after the popup auto-dismisses
+    setTimeout(() => moveNoButton(), 2800);
   } else {
     // 4th+ tap: keep escaping
     moveNoButton();
@@ -231,7 +232,10 @@ btnNo.addEventListener('touchstart', onNoInteraction, { passive: false });
 btnNo.addEventListener('click', onNoInteraction);
 
 // ===== Warning =====
+let warningShownAt = 0;
+
 function showWarning() {
+  warningShownAt = Date.now();
   warningOverlay.classList.add('active');
   warningBox.classList.remove('shake');
   void warningBox.offsetWidth;
@@ -244,16 +248,29 @@ function showWarning() {
 
   // Auto-dismiss after 2.5 seconds
   setTimeout(() => {
-    warningOverlay.classList.remove('active');
-    warningBox.classList.remove('shake');
+    dismissWarning();
   }, 2500);
 }
 
-// Dismiss warning on tap
-warningOverlay.addEventListener('click', () => {
+function dismissWarning() {
   warningOverlay.classList.remove('active');
   warningBox.classList.remove('shake');
+}
+
+// Dismiss warning on tap (with 500ms guard to prevent instant dismiss)
+warningOverlay.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (Date.now() - warningShownAt > 500) {
+    dismissWarning();
+  }
 });
+
+warningOverlay.addEventListener('touchstart', (e) => {
+  e.stopPropagation();
+  if (Date.now() - warningShownAt > 500) {
+    dismissWarning();
+  }
+}, { passive: true });
 
 // ===== Yes Button – Celebration =====
 function handleYesTap(e) {
