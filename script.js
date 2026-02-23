@@ -241,11 +241,11 @@ function updateButtons() {
   if (noTapCount === 2) {
     tapCounter.textContent = '👆 The pink button looks lonely...';
   } else if (noTapCount >= 3 && noTapCount < 6) {
-    tapCounter.textContent = '� You\'re really testing me right now';
+    tapCounter.textContent = '😤 You\'re really testing me right now';
   } else if (noTapCount >= 6 && noTapCount < 10) {
     tapCounter.textContent = '🤡 You look like a clown chasing that button';
   } else if (noTapCount >= 10) {
-    tapCounter.textContent = '� Just give up and press YES already';
+    tapCounter.textContent = '💀 Just give up and press YES already';
   }
 }
 
