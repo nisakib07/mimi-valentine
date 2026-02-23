@@ -23,36 +23,59 @@ let noTapCount = 0;
 let isEscaped = false;
 let yesScale = 1;
 
-// ===== Funny No Button Messages (escalating) =====
+// ===== Funny No Button Messages (escalating desperation) =====
 const noMessages = [
-  'No',
-  'Are you sure? 🤨',
-  'Really sure?? 😢',
-  'Think again! 🥺',
-  'Pretty please? 💔',
-  'I\'ll cry... 😭',
-  'You\'re hurting me 💀',
-  'LAST CHANCE! 🚨',
-  'Fine... just kidding! 😏',
-  'SAY YES!! 😤',
+  'No',                              // 0 - confident
+  'Umm... sure? 🤨',                // 1 - confused
+  'Bro seriously?? 😢',             // 2 - hurt
+  'My heart is cracking 💔',        // 3 - emotional (warning fires here)
+  'I\'m literally crying rn 😭',    // 4 - dramatic
+  'OK I\'ll stop eating 🍕❌',      // 5 - absurd threat
+  'I\'ll tell your mom �',         // 6 - funny escalation
+  'Fine, I\'ll date your bestie 💅', // 7 - jealousy card
+  'Googling "how to move on" �',   // 8 - petty
+  '*sends 100 texts* �📱📱',       // 9 - clingy
+  'I\'m not crying YOU\'RE crying 😤', // 10 - denial
+  'Bhai just press Yes 🙏',         // 11 - begging
+  'I won\'t ask again... jk I WILL', // 12 - relentless
+  'MIMISONA PLEASE �💀',           // 13 - final form
 ];
 
-// ===== Funny Yes Button Messages (growing) =====
+// ===== Funny Yes Button Messages (growing bigger & louder) =====
 const yesMessages = [
-  'Yes!',
-  'YES! ❤️',
-  'YESSS!! 💕',
-  'YESSSSS!!! 💖',
-  'SAY IT!! 🥰',
-  'YESSSSSSS!!!! 💗',
-  'CLICK MEEE!! 💘',
-  'I\'M RIGHT HERE!! 💝',
-  'PLEASE!! 🥺💖',
-  'YES YES YES!! 💕💕',
+  'Yes',                        // 0 - calm
+  'Yes ❤️',                     // 1 - sweet
+  'YES!! 💕',                   // 2 - excited
+  'YESSS!!! 💖',                // 3 - very excited
+  'TAP ME!! 🥰',               // 4 - begging
+  'I\'M RIGHT HERE 💗',         // 5 - obvious
+  'THIS ONE!! 👆�',            // 6 - pointing
+  'PLEASEEE 🥺�',             // 7 - desperate
+  'JUST DO IT ✅',              // 8 - nike mode
+  'I\'M GETTING BIGGER 📈',    // 9 - self-aware
+  '*YES BUTTON NOISES* 🔊',    // 10 - chaotic
+  'HELLOOO?? 👀�',            // 11 - impatient
+  'CLICK ME OR I EXPLODE �',  // 12 - threat
+  'YES 💕 YES 💕 YES 💕',      // 13 - final form
 ];
 
-// ===== Top Emoji Changes =====
-const topEmojis = ['💕', '🥺', '😢', '💔', '😭', '💀', '🚨', '😤', '😏', '💔'];
+// ===== Top Emoji Emotional Journey =====
+const topEmojis = [
+  '💕',  // happy
+  '🥺',  // puppy eyes
+  '😢',  // sad
+  '💔',  // heartbreak (warning fires)
+  '😭',  // crying
+  '🍕',  // pizza trauma
+  '📞',  // calling mom
+  '💅',  // petty mode
+  '�',  // googling
+  '�',  // texting
+  '😤',  // angry
+  '�',  // praying
+  '🤡',  // clown mode
+  '�',  // dead
+];
 
 // ===== Typewriter Effect =====
 function typeWriter(text, element, speed = 60) {
@@ -184,10 +207,14 @@ function updateButtons() {
   emojiTop.textContent = topEmojis[Math.min(noTapCount, topEmojis.length - 1)];
 
   // Update tap counter with funny hints
-  if (noTapCount >= 2 && noTapCount < 5) {
-    tapCounter.textContent = '👆 The big pink button is right there...';
-  } else if (noTapCount >= 5) {
-    tapCounter.textContent = '😤 Just tap YES already!!';
+  if (noTapCount === 2) {
+    tapCounter.textContent = '👆 The pink button looks lonely...';
+  } else if (noTapCount >= 3 && noTapCount < 6) {
+    tapCounter.textContent = '� You\'re really testing me right now';
+  } else if (noTapCount >= 6 && noTapCount < 10) {
+    tapCounter.textContent = '🤡 You look like a clown chasing that button';
+  } else if (noTapCount >= 10) {
+    tapCounter.textContent = '� Just give up and press YES already';
   }
 }
 
