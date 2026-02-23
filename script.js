@@ -150,6 +150,10 @@ function createSparkle(e) {
 }
 
 // ===== No Button – Escape Logic =====
+function rectsOverlap(r1, r2) {
+  return !(r1.right < r2.left || r1.left > r2.right || r1.bottom < r2.top || r1.top > r2.bottom);
+}
+
 function moveNoButton() {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -164,12 +168,33 @@ function moveNoButton() {
   requestAnimationFrame(() => {
     const btnW = btnNo.offsetWidth;
     const btnH = btnNo.offsetHeight;
+    const yesRect = btnYes.getBoundingClientRect();
+
+    // Add a generous buffer around the Yes button to avoid overlap
+    const yesZone = {
+      left: yesRect.left - 30,
+      right: yesRect.right + 30,
+      top: yesRect.top - 30,
+      bottom: yesRect.bottom + 30
+    };
 
     const maxX = vw - btnW - padding;
     const maxY = vh - btnH - padding;
 
-    const randomX = padding + Math.random() * Math.max(maxX - padding, 0);
-    const randomY = padding + Math.random() * Math.max(maxY - padding, 0);
+    let randomX, randomY, noRect, attempts = 0;
+
+    // Try up to 20 positions, pick one that doesn't overlap Yes
+    do {
+      randomX = padding + Math.random() * Math.max(maxX - padding, 0);
+      randomY = padding + Math.random() * Math.max(maxY - padding, 0);
+      noRect = {
+        left: randomX,
+        right: randomX + btnW,
+        top: randomY,
+        bottom: randomY + btnH
+      };
+      attempts++;
+    } while (rectsOverlap(noRect, yesZone) && attempts < 20);
 
     btnNo.style.left = randomX + 'px';
     btnNo.style.top = randomY + 'px';
