@@ -267,13 +267,8 @@ function handleNoTap(e) {
     // Move the button after the popup auto-dismisses
     setTimeout(() => moveNoButton(), 2800);
   } else {
-    // 4th+ tap: keep escaping
+    // 4th+ tap: keep escaping (but no more warnings)
     moveNoButton();
-
-    // Every few taps show the warning again
-    if (noTapCount % 5 === 0) {
-      showWarning();
-    }
   }
 }
 
