@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Will You Be My Valentine? 💕</title>
+  <meta name="description" content="A special Valentine's question just for you 💖" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Floating hearts background -->
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <!-- Sparkle layer (tap effects) -->
+  <div class="sparkle-layer" id="sparkleLayer"></div>
+
+  <!-- Main card -->
+  <div class="container" id="mainContainer">
+    <div class="card" id="card">
+      <div class="emoji-top" id="emojiTop">💕</div>
+      <h1 class="title" id="titleText"></h1>
+      <p class="subtitle" id="subtitle">↓ You know the answer ↓</p>
+      <div class="buttons">
+        <button class="btn btn-yes" id="btnYes">
+          <span class="btn-icon">❤️</span>
+          <span id="yesText">Yes!</span>
+        </button>
+        <button class="btn btn-no" id="btnNo">
+          <span class="btn-icon">❌</span>
+          <span id="noText">No</span>
+        </button>
+      </div>
+      <p class="tap-counter" id="tapCounter"></p>
+    </div>
+  </div>
+
+  <!-- Warning overlay -->
+  <div class="warning-overlay" id="warningOverlay">
+    <div class="warning-box" id="warningBox">
+      <img src="assets/angry-cat-sassy-cat.gif" alt="Angry cat" class="warning-cat" />
+      <p class="warning-text">Don't mess with me, you little dustu mimi 😏</p>
+    </div>
+  </div>
+
+  <!-- Celebration overlay -->
+  <div class="celebration-overlay" id="celebrationOverlay">
+    <div class="celebration-content" id="celebrationContent">
+      <div class="celebration-hearts-burst" id="heartsBurst"></div>
+      <div class="celebration-emoji" id="celebEmoji">💖</div>
+      <h2 class="celebration-title" id="celebTitle"></h2>
+      <p class="celebration-message" id="celebMessage"></p>
+      <div class="love-letter" id="loveLetter">
+        <p class="love-letter-text" id="loveLetterText"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heart rain container -->
+  <div class="heart-rain" id="heartRain"></div>
+
+  <!-- Confetti container -->
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
