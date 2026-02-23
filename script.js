@@ -1,4 +1,4 @@
-// ===== DOM Elements =====
+﻿// ===== DOM Elements =====
 const btnYes = document.getElementById('btnYes');
 const btnNo = document.getElementById('btnNo');
 const yesText = document.getElementById('yesText');
@@ -26,55 +26,55 @@ let yesScale = 1;
 // ===== Funny No Button Messages (escalating desperation) =====
 const noMessages = [
   'No',                              // 0 - confident
-  'Umm... sure? 🤨',                // 1 - confused
-  'Bro seriously?? 😢',             // 2 - hurt
-  'My heart is cracking 💔',        // 3 - emotional (warning fires here)
-  'I\'m literally crying rn 😭',    // 4 - dramatic
-  'OK I\'ll stop eating 🍕❌',      // 5 - absurd threat
-  'I\'ll tell your mom �',         // 6 - funny escalation
-  'Fine, I\'ll date your bestie 💅', // 7 - jealousy card
-  'Googling "how to move on" �',   // 8 - petty
-  '*sends 100 texts* �📱📱',       // 9 - clingy
-  'I\'m not crying YOU\'RE crying 😤', // 10 - denial
-  'Bhai just press Yes 🙏',         // 11 - begging
+  'Umm... sure? ðŸ¤¨',                // 1 - confused
+  'Bro seriously?? ðŸ˜¢',             // 2 - hurt
+  'My heart is cracking ðŸ’”',        // 3 - emotional (warning fires here)
+  'I\'m literally crying rn ðŸ˜­',    // 4 - dramatic
+  'OK I\'ll stop eating ðŸ•âŒ',      // 5 - absurd threat
+  'I\'ll tell your mom ðŸ“ž',         // 6 - funny escalation
+  'Fine, I\'ll date your bestie ðŸ’…', // 7 - jealousy card
+  'Googling "how to move on" ðŸ”',   // 8 - petty
+  '*sends 100 texts* ðŸ“±ðŸ“±ðŸ“±',       // 9 - clingy
+  'I\'m not crying YOU\'RE crying ðŸ˜¤', // 10 - denial
+  'Bhai just press Yes ðŸ™',         // 11 - begging
   'I won\'t ask again... jk I WILL', // 12 - relentless
-  'MIMISONA PLEASE �💀',           // 13 - final form
+  'MIMISONA PLEASE ðŸ˜©ðŸ’€',           // 13 - final form
 ];
 
 // ===== Funny Yes Button Messages (growing bigger & louder) =====
 const yesMessages = [
   'Yes',                        // 0 - calm
-  'Yes ❤️',                     // 1 - sweet
-  'YES!! 💕',                   // 2 - excited
-  'YESSS!!! 💖',                // 3 - very excited
-  'TAP ME!! 🥰',               // 4 - begging
-  'I\'M RIGHT HERE 💗',         // 5 - obvious
-  'THIS ONE!! 👆�',            // 6 - pointing
-  'PLEASEEE 🥺�',             // 7 - desperate
-  'JUST DO IT ✅',              // 8 - nike mode
-  'I\'M GETTING BIGGER 📈',    // 9 - self-aware
-  '*YES BUTTON NOISES* 🔊',    // 10 - chaotic
-  'HELLOOO?? 👀�',            // 11 - impatient
-  'CLICK ME OR I EXPLODE �',  // 12 - threat
-  'YES 💕 YES 💕 YES 💕',      // 13 - final form
+  'Yes â¤ï¸',                     // 1 - sweet
+  'YES!! ðŸ’•',                   // 2 - excited
+  'YESSS!!! ðŸ’–',                // 3 - very excited
+  'TAP ME!! ðŸ¥°',               // 4 - begging
+  'I\'M RIGHT HERE ðŸ’—',         // 5 - obvious
+  'THIS ONE!! ðŸ‘†ðŸ’˜',            // 6 - pointing
+  'PLEASEEE ðŸ¥ºðŸ’',             // 7 - desperate
+  'JUST DO IT âœ…',              // 8 - nike mode
+  'I\'M GETTING BIGGER ðŸ“ˆ',    // 9 - self-aware
+  '*YES BUTTON NOISES* ðŸ”Š',    // 10 - chaotic
+  'HELLOOO?? ðŸ‘€ðŸ’–',            // 11 - impatient
+  'CLICK ME OR I EXPLODE ðŸ’£',  // 12 - threat
+  'YES ðŸ’• YES ðŸ’• YES ðŸ’•',      // 13 - final form
 ];
 
 // ===== Top Emoji Emotional Journey =====
 const topEmojis = [
-  '💕',  // happy
-  '🥺',  // puppy eyes
-  '😢',  // sad
-  '💔',  // heartbreak (warning fires)
-  '😭',  // crying
-  '🍕',  // pizza trauma
-  '📞',  // calling mom
-  '💅',  // petty mode
-  '�',  // googling
-  '�',  // texting
-  '😤',  // angry
-  '�',  // praying
-  '🤡',  // clown mode
-  '�',  // dead
+  'ðŸ’•',  // happy
+  'ðŸ¥º',  // puppy eyes
+  'ðŸ˜¢',  // sad
+  'ðŸ’”',  // heartbreak (warning fires)
+  'ðŸ˜­',  // crying
+  'ðŸ•',  // pizza trauma
+  'ðŸ“ž',  // calling mom
+  'ðŸ’…',  // petty mode
+  'ðŸ”',  // googling
+  'ðŸ“±',  // texting
+  'ðŸ˜¤',  // angry
+  'ðŸ™',  // praying
+  'ðŸ¤¡',  // clown mode
+  'ðŸ’€',  // dead
 ];
 
 // ===== Typewriter Effect =====
@@ -522,3 +522,4 @@ function triggerConfetti() {
     }
   }, 2500);
 }
+
